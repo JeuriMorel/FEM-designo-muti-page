@@ -1,4 +1,5 @@
-const hamburger = document.querySelector("#hamburger");
+const hamburgerBtn = document.querySelector("#hamburger-toggle");
+const hamburgerIcon = document.querySelector("#hamburger");
 const body = document.querySelector("body");
 
 const hamSource = {
@@ -7,13 +8,11 @@ const hamSource = {
 };
 
 function handleHam() {
-    hamburger.classList.toggle("open");
+    hamburgerIcon.classList.toggle("open");
     body.classList.toggle("open");
-    let isOpen = hamburger.classList.contains("open");
+    let isOpen = hamburgerIcon.classList.contains("open");
 
-    hamburger.src = hamSource[isOpen];
+    hamburgerIcon.src = hamSource[isOpen];
 }
 
-console.log('hey')
-
-hamburger?.addEventListener("click", handleHam);
+hamburgerBtn?.addEventListener("click", handleHam);

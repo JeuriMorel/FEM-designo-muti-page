@@ -1,48 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Designo Agency Website Challenge</title>
-</head>
-<body>
-  Our Company
-  Locations
-  Contact
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon-32x32.png"
+        />
 
-  Contact us
-  Ready to take it to the next level? Let’s talk about your project or idea and find out how 
-  we can help your business grow. If you are looking for unique digital experiences that’s 
-  relatable to your users, drop us a line.
+        <link rel="stylesheet" href="./dist/css/normalize.css" />
+        <link rel="stylesheet" href="./dist/css/styles.css" />
 
-  Name
-  Email address
-  Phone
-  Your message
-  Submit
+        <script src="./dist/js/main.js" defer></script>
 
-  Canada
-  See location
+        <title>Frontend Mentor | Designo Agency Website Challenge</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="header__nav container">
+                <a
+                    href="./index.html"
+                    class="header__anchor"
+                    aria-label="link to homepage"
+                >
+                    <img
+                        class="header__logo"
+                        src="./assets/shared/desktop/logo-dark.png"
+                        alt="designo logo"
+                        aria-hidden="true"
+                    />
+                </a>
 
-  Australia
-  See location
+                <ul class="header__links">
+                    <li>
+                        <a href="./about.html" class="header__link"
+                            >our company</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./locations.html" class="header__link"
+                            >locations</a
+                        >
+                    </li>
+                    <li>
+                        <a href="./contact.html" class="header__link"
+                            >contact</a
+                        >
+                    </li>
+                </ul>
 
-  United Kingdom
-  See location
+                <div class="mobile-menu">
+                    <ul class="mobile-menu__links container">
+                        <li>
+                            <a href="./about.html" class="mobile-menu__link"
+                                >our company</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./locations.html" class="mobile-menu__link"
+                                >locations</a
+                            >
+                        </li>
+                        <li>
+                            <a href="./contact.html" class="mobile-menu__link"
+                                >contact</a
+                            >
+                        </li>
+                    </ul>
+                </div>
 
-  Our company
-  Locations
-  Contact
+                <a
+                    href="#"
+                    aria-label="toggle navigation menu"
+                    id="hamburger-toggle"
+                    class="header__hamburger-toggle"
+                >
+                    <img
+                        src="./assets/shared/mobile/icon-hamburger.svg"
+                        alt="hamburger menu icon"
+                        class="header__hamburger"
+                        id="hamburger"
+                        aria-hidden="true"
+                    />
+                </a>
+            </nav>
+        </header>
+        Our Company Locations Contact Contact us Ready to take it to the next
+        level? Let’s talk about your project or idea and find out how we can
+        help your business grow. If you are looking for unique digital
+        experiences that’s relatable to your users, drop us a line. Name Email
+        address Phone Your message Submit Canada See location Australia See
+        location United Kingdom See location
 
-  Designo Central Office
-  3886 Wellington Street
-  Toronto, Ontario M9C 3J5
+        <footer class="footer footer--contact">
 
-  Contact Us (Central Office)
-  P : +1 253-863-8967
-  M : contact@designo.co
-</body>
+            <section class="footer__content">
+                <div class="footer__container container">
+                    <div class="footer__nav">
+                        <a
+                            href="./index.html"
+                            class="footer__anchor"
+                            aria-label="link to home"
+                        >
+                            <img
+                                src="./assets/shared/desktop/logo-light.png"
+                                alt="designo logo"
+                                class="footer__logo"
+                            />
+                        </a>
+                        <ul class="footer__links">
+                            <li class="footer__link">
+                                <a href="./about.html">our company</a>
+                            </li>
+                            <li class="footer__link">
+                                <a href="./locations.html">locations</a>
+                            </li>
+                            <li class="footer__link">
+                                <a href="./contact.html">contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footer__info">
+                        <div class="footer__text">
+                            <h4>Designo Central Office</h4>
+                            <p>
+                                3886 Wellington Street
+                                <br />
+                                Toronto, Ontario M9C 3J5
+                            </p>
+                        </div>
+                        <div class="footer__text">
+                            <h4>Contact Us (Central Office)</h4>
+                            <p>
+                                P : +1 253-863-8967
+                                <br />
+                                M : contact@designo.co
+                            </p>
+                        </div>
+                        <ul class="footer__social">
+                            <li class="footer__link footer__social-link">
+                                <a href="https://www.facebook.com">
+                                    <img
+                                        src="./assets/shared/desktop/icon-facebook.svg"
+                                        alt="facebook icon"
+                                    />
+                                </a>
+                            </li>
+                            <li class="footer__link footer__social-link">
+                                <a href="https://www.youtube.com">
+                                    <img
+                                        src="./assets/shared/desktop/icon-youtube.svg"
+                                        alt="youtube icon"
+                                    />
+                                </a>
+                            </li>
+                            <li class="footer__link footer__social-link">
+                                <a href="https://www.twitter.com">
+                                    <img
+                                        src="./assets/shared/desktop/icon-twitter.svg"
+                                        alt="twitter icon"
+                                    />
+                                </a>
+                            </li>
+                            <li class="footer__link footer__social-link">
+                                <a href="https://www.pinterest.com">
+                                    <img
+                                        src="./assets/shared/desktop/icon-pinterest.svg"
+                                        alt="pinterest icon"
+                                    />
+                                </a>
+                            </li>
+                            <li class="footer__link footer__social-link">
+                                <a href="https://www.instagram.com">
+                                    <img
+                                        src="./assets/shared/desktop/icon-instagram.svg"
+                                        alt="instagram icon"
+                                    />
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </body>
 </html>
