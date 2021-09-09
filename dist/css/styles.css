@@ -189,6 +189,7 @@ h4 {
   margin-inline: auto;
   padding-block: 7.5rem;
   background-color: #e88069;
+  overflow: hidden;
 }
 
 .hero__text {
@@ -239,6 +240,38 @@ h4 {
 
 .hero--design p {
   font-size: 0.875rem;
+}
+
+.hero--about {
+  padding-block: 0;
+  margin-block: 0;
+}
+
+.hero--about img {
+  width: 100%;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.hero--about__info {
+  padding-block: 5rem;
+  background-image: url("../../assets/about/mobile/bg-pattern-hero-about-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: right top -9.125rem;
+}
+
+.hero--about__text {
+  gap: 2rem;
+  max-width: 36.25rem;
+}
+
+.hero--about__text h1 {
+  margin: 0;
+}
+
+.hero--about__text p {
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
 }
 
 .cards {
@@ -530,6 +563,7 @@ h4 {
 
 .features__img img {
   position: relative;
+  vertical-align: middle;
   z-index: 1000;
 }
 
@@ -541,21 +575,71 @@ h4 {
   inset: 0;
 }
 
-.features__img--resourceful::after {
+.features__img--resourceful::after, .features__img--uk::after {
   transform: rotate(270deg);
 }
 
-.features__img--friendly::after {
+.features__img--friendly::after, .features__img--canada::after {
   transform: rotate(90deg);
 }
 
 .features__text-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   max-width: 27.4375rem;
 }
 
 .features__header {
   text-transform: uppercase;
   margin-bottom: 2rem;
+}
+
+.section--about {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section--about__img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.section--about__info {
+  background-color: #fdf3f0;
+  padding: 5rem 1.5rem;
+  background-image: url("../../assets/shared/desktop/bg-pattern-two-circles.svg");
+}
+
+.section--about__heading {
+  color: #e88069;
+}
+
+.section--about__heading::first-letter {
+  text-transform: uppercase;
+}
+
+.section--about__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: clamp(20.4375rem, 87vw, 36.25rem);
+  margin: 0 auto;
+}
+
+.section--about__text p {
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+}
+
+.section--real-deal {
+  margin-bottom: 7.5rem;
+}
+
+.section--real-deal__info {
+  padding-bottom: 6.5625rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -581,15 +665,16 @@ h4 {
   .design-cards__card {
     height: 12.5rem;
   }
-  .features {
+  .features--home {
     gap: 2rem;
   }
-  .features__feature {
+  .features--home__feature {
     flex-direction: row;
     text-align: left;
     height: 12.625rem;
   }
-  .hero {
+  .hero,
+  .section--about {
     width: clamp(20.4375rem, 87vw, 69.375rem);
     border-radius: 0.9375rem;
   }
@@ -597,6 +682,34 @@ h4 {
     background-image: url("../../assets/shared/tablet/bg-pattern-design-pages-intro-tablet.svg");
     padding-block: 4rem;
     background-position: left;
+  }
+  .hero--about__info {
+    background-image: url("../../assets/about/desktop/bg-pattern-hero-about-desktop.svg");
+    background-position: left -7.625rem top -26.8125rem;
+    padding-block: 4rem;
+  }
+  .hero--about__info p {
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+  .section--about__heading {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .section--about__info {
+    background-position: bottom 2.5rem right 0.9375rem;
+    background-repeat: no-repeat;
+    padding-block: 4.25rem;
+  }
+  .section--about__info p {
+    font-size: 1rem;
+    line-height: 1.625rem;
+  }
+  .section--talent {
+    margin: 7.5rem auto 0;
+  }
+  .section--real-deal {
+    margin: 0 auto 7.5rem;
   }
   .main--home__hero {
     padding-top: 3.75rem;
@@ -657,25 +770,47 @@ h4 {
     align-items: flex-start;
     gap: 1.625rem;
   }
-  .hero:not(.hero--design) {
+  .hero:not(.hero--design):not(.hero--about) {
     height: 40rem;
     padding-block: 9.0625rem;
   }
-  .hero:not(.hero--design)__text {
+  .hero:not(.hero--design):not(.hero--about)__text {
     align-items: flex-start;
     text-align: left;
     gap: 2.375rem;
   }
-  .hero:not(.hero--design)__text h1,
-  .hero:not(.hero--design)__text a {
+  .hero:not(.hero--design):not(.hero--about)__text h1,
+  .hero:not(.hero--design):not(.hero--about)__text a {
     margin: 0;
   }
-  .hero:not(.hero--design)__phone-img {
+  .hero:not(.hero--design):not(.hero--about)__phone-img {
     margin-top: -10.625rem;
     margin-left: -4rem;
   }
   .hero--design {
     background-position: right;
+  }
+  .hero--about {
+    display: flex;
+  }
+  .hero--about img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .hero--about__info {
+    padding: 8.4375rem 0 8.4375rem 5.9375rem;
+    background-position: right bottom;
+    order: -1;
+  }
+  .hero--about__text {
+    text-align: left;
+    align-items: flex-start;
+    max-width: 33.75rem;
+  }
+  .hero--about__text p {
+    width: 28.75rem;
   }
   .main .hero__container {
     display: grid;
@@ -702,6 +837,37 @@ h4 {
     grid-row: span 2;
     height: auto;
   }
+  .features--about {
+    flex-direction: row;
+    justify-content: space-between;
+    padding-block: 10rem;
+  }
+  .section--about {
+    flex-direction: row;
+  }
+  .section--about__info {
+    padding: 9.625rem 5.9375rem;
+    background-position: bottom left -9.125rem;
+  }
+  .section--about__img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .section--about__text {
+    text-align: left;
+    width: 27.8125rem;
+  }
+  .section--real-deal {
+    margin-bottom: 10rem;
+  }
+  .section--real-deal__info {
+    order: -1;
+    background-position: bottom left;
+  }
+  .section--talent {
+    margin-top: 10rem;
+  }
 }
 
 @media screen and (min-width: 1150px) {
@@ -723,11 +889,11 @@ h4 {
 }
 
 @media screen and (min-width: 1250px) {
-  .features {
+  .features--home {
     flex-direction: row;
     gap: 1.875rem;
   }
-  .features__feature {
+  .features--home__feature {
     flex-direction: column;
     text-align: center;
     height: initial;
