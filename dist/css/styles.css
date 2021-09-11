@@ -59,6 +59,7 @@ h3,
 h4 {
   font-weight: 500;
   margin: 0;
+  text-transform: capitalize;
 }
 
 h1 {
@@ -67,8 +68,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.75rem, 1vw, 2.5rem);
-  line-height: clamp(2.25rem, 1vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: clamp(2.25rem, 5vw, 3rem);
   letter-spacing: clamp(0.0875rem, 0.00003vw, 0.125rem);
 }
 
@@ -325,6 +326,11 @@ h4 {
 .cards__text h3 {
   text-transform: uppercase;
   color: #e88069;
+}
+
+.map {
+  height: clamp(20rem, 42vw, 20.375rem);
+  min-width: 21.875rem;
 }
 
 .footer {
@@ -642,6 +648,61 @@ h4 {
   padding-bottom: 6.5625rem;
 }
 
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: clamp(23.4375rem, 87vw, 69.375rem);
+  margin: 0 auto 7.5rem;
+}
+
+.locations__location {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.locations__info {
+  background-color: #fdf3f0;
+  background-image: url("../../assets/shared/desktop/bg-pattern-three-circles.svg");
+  background-repeat: no-repeat;
+  padding-block: 5rem;
+  display: flex;
+  width: 100%;
+}
+
+.locations__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.locations__h2 {
+  color: #e88069;
+}
+
+.locations__p {
+  width: 15.9375rem;
+}
+
+.locations__contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media screen and (min-width: 500px) {
+  .locations__map, .locations__info {
+    border-radius: 0.9375rem;
+  }
+  .locations__location {
+    gap: 1.5rem;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .cards {
     gap: 2rem;
@@ -714,6 +775,19 @@ h4 {
   .main--home__hero {
     padding-top: 3.75rem;
     background-position: right -7.5rem center;
+  }
+  .locations {
+    gap: 7.5rem;
+  }
+  .locations__text {
+    text-align: start;
+  }
+  .locations__contact-info {
+    flex-direction: row;
+  }
+  .locations__info {
+    background-image: url("../../assets/shared/desktop/bg-pattern-two-circles.svg");
+    background-position: left bottom;
   }
   .hero__p {
     font-size: 1rem;
@@ -885,6 +959,15 @@ h4 {
   .cards__card > * {
     flex: unset;
     width: auto;
+  }
+  .locations {
+    gap: 2rem;
+  }
+  .locations__location {
+    flex-direction: row-reverse;
+  }
+  .locations__location:where(.australia) {
+    flex-direction: row;
   }
 }
 
