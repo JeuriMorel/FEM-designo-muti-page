@@ -1370,6 +1370,11 @@ h4 {
     .hero--about__text p {
         width: 28.75rem;
     }
+    .hero__text--home {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+    }
     .main .hero__container {
         display: -ms-grid;
         display: grid;
