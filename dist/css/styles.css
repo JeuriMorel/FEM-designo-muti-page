@@ -206,6 +206,7 @@ h4 {
     text-transform: uppercase;
     margin: auto;
     z-index: 1000;
+    text-align: center;
 }
 
 .design-cards__text h2{
@@ -221,6 +222,7 @@ h4 {
     -ms-flex-align: center;
     align-items: center;
     margin: auto;
+    letter-spacing: 0.3125rem;
 }
 
 .design-cards--design {
