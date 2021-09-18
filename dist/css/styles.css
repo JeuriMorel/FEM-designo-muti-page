@@ -1164,6 +1164,9 @@ h4 {
         gap: 2.5rem;
     }
     .contact__text {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: flex-start;
         text-align: left;
         gap: 2rem;
     }
