@@ -1,6 +1,12 @@
 const hamburgerBtn = document.querySelector("#hamburger-toggle");
 const hamburgerIcon = document.querySelector("#hamburger");
 const body = document.querySelector("body");
+const form = document.querySelector("form");
+const firstName = document.querySelector("#name");
+const email = document.querySelector("#email");
+const message = document.querySelector("#message");
+const success = document.querySelector('.contact__success')
+const fields = [firstName, email, message];
 const ZOOM_LEVEL = 14;
 
 const hamburgerImgSource = {
@@ -14,6 +20,58 @@ function handleHam() {
     let isOpen = hamburgerIcon.classList.contains("open");
 
     hamburgerIcon.src = hamburgerImgSource[isOpen];
+}
+
+function validateField(field) {
+    let errorMessage = field.nextElementSibling.nextElementSibling;
+
+    if (!field.value) {
+        errorMessage.classList.add("error");
+        return;
+    }
+    errorMessage.classList.remove("error");
+}
+
+function validateEmail() {
+    let errorMessage = email.nextElementSibling.nextElementSibling;
+    let invalidEmailMessage = errorMessage.nextElementSibling;
+    errorMessage.classList.remove("error");
+
+    let mailRegex =
+        /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+    if (mailRegex.test(email.value)) {
+        invalidEmailMessage.classList.remove("error");
+        errorMessage.classList.remove("error");
+        return true;
+    }
+
+    invalidEmailMessage.classList.add("error");
+    return false;
+}
+
+function removeErrors(field) {
+    let errorMessage = field.nextElementSibling.nextElementSibling;
+    let invalidEmailMessage = errorMessage.nextElementSibling;
+    errorMessage.classList.remove("error");
+    invalidEmailMessage?.classList.remove("error");
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+    let isReadyToSubmit = email.value && firstName.value && message.value && validateEmail();
+
+    fields.forEach((field) => validateField(field));
+
+    if (email.value) {
+        validateEmail();
+    }
+
+    if (isReadyToSubmit) {
+        success.classList.add('success')
+        setTimeout(() => success.classList.remove("success"), 2400);
+        form.reset()
+    }
 }
 
 if (body.classList.contains("locations-body")) {
@@ -50,17 +108,21 @@ if (body.classList.contains("locations-body")) {
         ).addTo(map);
     };
 
-    const createMapMarker = (map, coordinates) => {
+    function createMapMarker(map, coordinates) {
         return L.marker(coordinates).addTo(map);
-    };
+    }
 
-    const createMap = ({ name, id, coordinates }) => {
+    function createMap({ id, coordinates }) {
         let map = L.map(id).setView(coordinates, ZOOM_LEVEL);
         createMapLayer(map);
         createMapMarker(map, coordinates);
-    };
+    }
 
     countries.forEach((country) => createMap(country));
 }
 
 hamburgerBtn?.addEventListener("click", handleHam);
+form?.addEventListener("submit", handleSubmit);
+fields.forEach((field) =>
+    field?.addEventListener("focus", (event) => removeErrors(event.target))
+);
